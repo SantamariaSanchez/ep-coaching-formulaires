@@ -142,22 +142,17 @@ Calendly embarqué reste fluide sur mobile, et le prompt lui-même
 autorise explicitement l'option A "sans hésiter" dans ce cas plutôt que
 de livrer un embed non vérifié qui pourrait ramer sur iPhone.
 
-**Lien Calendly vérifié via le connecteur MCP** (pas juste supposé
-valide) : `https://calendly.com/peccoux-manu/30min`, event type
-"| Appel Découverte |", actif, 30 min, canal outbound_call.
-
-**Un seul événement Calendly actif à la fois** : un deuxième event type
-("| Appel Découverte Business |") a été créé pour distinguer
-physique/business par événement distinct comme le prompt le préférait,
-mais **le plan Calendly de ce compte limite à un seul event type actif
-simultanément**, sa création a immédiatement désactivé l'événement
-physique existant. Repéré tout de suite (pas après coup) via
-`event_types-get_event_type` : l'événement physique venait de basculer
-`active: false`, ce qui aurait cassé le lien déjà en prod sur
-`ep-site/physique/index.html`. Réactivé immédiatement. L'événement
-business reste créé mais **inactif** (`https://calendly.com/peccoux-manu/appel-decouverte-business`),
-prêt à être activé manuellement depuis Calendly si le plan est mis à
-niveau un jour (activer l'un désactive alors l'autre, à surveiller).
+**Un seul événement Calendly actif, pour tous les parcours** (retour
+direct 2026-09-10, "j'ai pas calendly pro, mets-en un seul pour tous") :
+`https://calendly.com/peccoux-manu/appel-decouverte-business`, renommé
+"Appel Stratégique" côté Calendly (description réécrite pour couvrir
+les deux publics, physique et business), description à jour vérifiée
+via `event_types-get_event_type`. L'autre event type
+("| Appel Découverte |", ancienne URL `/30min`) reste **inactif** — le
+plan Calendly de ce compte limite à un seul event type actif à la fois,
+et le choix a été fait de désactiver celui-là plutôt que de continuer à
+en jongler entre deux. Les deux formulaires (`app/prequalification` et
+`app/business`) pointent maintenant vers ce même lien unique.
 
 **Distinction physique/business transmise autrement**, comme le prompt
 le permettait explicitement en alternative ("soit un événement distinct,

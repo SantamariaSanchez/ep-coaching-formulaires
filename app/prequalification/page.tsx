@@ -159,7 +159,13 @@ export default function PrequalificationPage() {
       onSubmit={submitPhysiqueForm}
       successTitle="On se parle bientôt"
       successBody="Réserve ton créneau, on fait le point sur ta situation et sur ce que tu veux atteindre."
-      calendlyUrl="https://calendly.com/peccoux-manu/30min"
+      // Retour direct 2026-09-10 ("j'ai pas calendly pro, un seul event en
+      // cours, mets-en un seul pour tous") : un seul event type Calendly
+      // actif désormais, renommé "Appel Stratégique" côté Calendly (même
+      // URL qu'avant, /appel-decouverte-business — le slug ne se renomme
+      // pas via l'API, seul le nom affiché change). Les deux parcours
+      // (physique et business) pointent vers ce même lien unique.
+      calendlyUrl="https://calendly.com/peccoux-manu/appel-decouverte-business"
       campaignTag="physique"
     />
   );

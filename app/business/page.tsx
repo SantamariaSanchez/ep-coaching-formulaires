@@ -137,7 +137,12 @@ export default function BusinessPrequalificationPage() {
       onSubmit={submitBusinessForm}
       successTitle="On se parle bientôt"
       successBody="Réserve ton créneau, on fait le point sur ton activité et sur ce que tu veux atteindre."
-      calendlyUrl="https://calendly.com/peccoux-manu/30min"
+      // Retour direct 2026-09-10 : un seul event type Calendly actif pour
+      // tout le monde (voir le commentaire équivalent dans
+      // app/prequalification/page.tsx), renommé "Appel Stratégique" côté
+      // Calendly. Ce parcours pointait par erreur vers /30min (l'URL de
+      // l'event physique, aujourd'hui désactivé) avant ce correctif.
+      calendlyUrl="https://calendly.com/peccoux-manu/appel-decouverte-business"
       campaignTag="business"
     />
   );
