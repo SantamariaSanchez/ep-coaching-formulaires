@@ -26,6 +26,30 @@ const questions: Question[] = [
     ],
   },
   {
+    // Ajoutée le 2026-09-24 (demande fondateur) : signal d'intention pour
+    // prioriser les appels (réponse 1 = déjà convaincu par le contenu,
+    // le plus chaud), jamais bloquant contrairement au screening TCA
+    // plus bas. Stockée dans answers.lead_qualification_signal, comme
+    // toute autre question du formulaire (voir actions.ts, `rest`).
+    type: "choice",
+    id: "lead_qualification_signal",
+    label: "Qu'est-ce qui t'a donné envie de remplir ce formulaire aujourd'hui ?",
+    options: [
+      {
+        value: "contenu_ep_coaching",
+        label: "J'ai vu du contenu EP Coaching qui m'a parlé et je veux cette méthode précisément",
+      },
+      {
+        value: "coach_en_general",
+        label: "Je cherche un coach en général, EP Coaching est une option parmi d'autres",
+      },
+      {
+        value: "curieux",
+        label: "Je suis juste curieux, je ne sais pas encore si je veux un coach",
+      },
+    ],
+  },
+  {
     type: "textarea",
     id: "pourquoi",
     label: "Pourquoi cet objectif compte pour toi ?",
