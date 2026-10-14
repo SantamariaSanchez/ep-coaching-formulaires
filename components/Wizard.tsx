@@ -28,18 +28,17 @@ export type Question =
 
 export type Answers = Record<string, string>;
 
-// Handle correct : @santamariasanchez_ (jamais @emmanuelpeccoux, prompt
-// 13/15). Affiche sur l'ecran d'intro, de succes ET d'erreur, pour que le
-// bon handle soit visible partout ou l'ancien formulaire en montrait un.
+// Compte Instagram du fondateur : @santamariasanchezep_ (le même sur
+// Threads). Affiché sur l'écran d'intro, de succès ET d'erreur.
 function Footer() {
   return (
     <a
-      href="https://instagram.com/santamariasanchez_"
+      href="https://www.instagram.com/santamariasanchezep_/"
       target="_blank"
       rel="noopener noreferrer"
       className="mt-12 text-xs font-medium text-blanc-casse/40 transition-colors hover:text-blanc-casse/70"
     >
-      @santamariasanchez_
+      @santamariasanchezep_
     </a>
   );
 }

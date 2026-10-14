@@ -10,7 +10,7 @@ import { submitPhysiqueForm } from "./actions";
 export const metadata: Metadata = {
   title: "EP Coaching · Avant notre appel",
   description:
-    "Réponds à quelques questions avant de réserver ton appel avec Santamaria Sànchez, coach EP Coaching.",
+    "Réponds à quelques questions avant de réserver ton appel avec Emmanuel Santamaria Sanchéz, coach EP Coaching.",
 };
 
 const questions: Question[] = [

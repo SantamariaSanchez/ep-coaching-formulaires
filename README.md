@@ -120,11 +120,11 @@ entre les deux parcours.
   volontairement différents des vrais tarifs (jamais committés nulle
   part, y compris en commentaire).
 - Tutoiement systématique.
-- Handle Instagram correct partout : `@santamariasanchez_`
-  (`https://instagram.com/santamariasanchez_`), jamais
+- Handle Instagram correct partout : `@santamariasanchezep_`
+  (`https://www.instagram.com/santamariasanchezep_/`), jamais
   `@emmanuelpeccoux`.
-- Jamais "Emmanuel" dans un texte visible : `Santamaria Sànchez`
-  uniquement (accent grave, orthographe confirmée par l'intéressé).
+- Nom public : `Emmanuel Santamaria Sanchéz` (accent aigu sur le é final).
+  Le nom légal n'apparaît jamais dans les formulaires.
 - Formulaire physique : le niveau de départ ("Je débute" est la première
   option, jamais masquée ni exclue) n'est jamais un critère filtrant,
   seule la motivation ("Tu es prêt à investir du temps...") l'est, cohérent avec le positionnement du site ("peu importe ton niveau de

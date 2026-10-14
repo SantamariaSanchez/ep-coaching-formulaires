@@ -9,7 +9,7 @@ import { submitBusinessForm } from "./actions";
 export const metadata: Metadata = {
   title: "EP Coaching · Avant notre appel",
   description:
-    "Réponds à quelques questions sur ton activité de coach avant de réserver ton appel avec Santamaria Sànchez.",
+    "Réponds à quelques questions sur ton activité de coach avant de réserver ton appel avec Emmanuel Santamaria Sanchéz.",
 };
 
 const questions: Question[] = [
