@@ -164,7 +164,7 @@ export default function Wizard({
           href={prefilledCalendlyUrl}
           className="rounded-lg bg-rouge-principal px-8 py-4 text-[15px] font-bold tracking-wide text-blanc-casse transition-colors hover:bg-rouge-fonce active:scale-[0.98]"
         >
-          Réserver mon appel
+          Réserver mon audit stratégique
         </a>
         <Footer />
       </div>
@@ -207,14 +207,14 @@ export default function Wizard({
           Petit problème technique
         </h1>
         <p className="mb-10 max-w-md text-[15px] leading-relaxed text-blanc-casse/70">
-          Tes réponses n&rsquo;ont pas pu être enregistrées, mais ça ne doit pas t&rsquo;empêcher de réserver ton appel. Tu peux aussi réessayer, ou nous écrire directement sur Instagram.
+          Tes réponses n&rsquo;ont pas pu être enregistrées, mais ça ne doit pas t&rsquo;empêcher de réserver ton audit stratégique. Tu peux aussi réessayer, ou nous écrire directement sur Instagram.
         </p>
         <div className="flex flex-col items-center gap-3">
           <a
             href={prefilledCalendlyUrl}
             className="rounded-lg bg-rouge-principal px-8 py-4 text-[15px] font-bold tracking-wide text-blanc-casse transition-colors hover:bg-rouge-fonce active:scale-[0.98]"
           >
-            Réserver mon appel quand même
+            Réserver mon audit quand même
           </a>
           <button
             type="button"
