@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { AUDIT_STRATEGIQUE_URL } from "@/lib/booking";
 import Wizard, { type Question } from "@/components/Wizard";
 import { submitPhysiqueForm } from "./actions";
 
@@ -8,9 +9,9 @@ import { submitPhysiqueForm } from "./actions";
 // jour, il faudra repercuter le lien sur ep-site (physique/index.html,
 // bouton "Reserver mon appel" de la section Accompagnement 1-to-1).
 export const metadata: Metadata = {
-  title: "EP Coaching · Avant notre appel",
+  title: "EP Coaching · Avant ton audit stratégique",
   description:
-    "Réponds à quelques questions avant de réserver ton appel avec Emmanuel Santamaria Sanchéz, coach EP Coaching.",
+    "Réponds à quelques questions avant de réserver ton audit stratégique offert avec Emmanuel Santamaria Sanchéz, coach EP Coaching.",
 };
 
 const questions: Question[] = [
@@ -176,20 +177,16 @@ export default function PrequalificationPage() {
     <Wizard
       intro={{
         eyebrow: "◆ EP Coaching",
-        title: "Avant notre appel",
+        title: "Avant ton audit stratégique",
         body: "Réponds à quelques questions, ça prend moins de 3 minutes. On fait le point avant de se parler.",
       }}
       questions={questions}
       onSubmit={submitPhysiqueForm}
       successTitle="On se parle bientôt"
-      successBody="Réserve ton créneau, on fait le point sur ta situation et sur ce que tu veux atteindre."
-      // Retour direct 2026-09-10 ("j'ai pas calendly pro, un seul event en
-      // cours, mets-en un seul pour tous") : un seul event type Calendly
-      // actif désormais, renommé "Appel Stratégique" côté Calendly (même
-      // URL qu'avant, /appel-decouverte-business — le slug ne se renomme
-      // pas via l'API, seul le nom affiché change). Les deux parcours
-      // (physique et business) pointent vers ce même lien unique.
-      calendlyUrl="https://calendly.com/peccoux-manu/appel-decouverte-business"
+      successBody="Réserve ton audit stratégique : on fait le point sur ta situation, ce que tu fais déjà et tes leviers prioritaires. Tu repars avec une vision plus claire de tes prochaines étapes."
+      // Un seul événement Calendly actif : « Audit stratégique »
+      // (lib/booking.ts). L'ancien slug /appel-decouverte-business n'existe plus.
+      calendlyUrl={AUDIT_STRATEGIQUE_URL}
       campaignTag="physique"
     />
   );

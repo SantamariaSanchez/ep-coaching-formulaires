@@ -144,8 +144,10 @@ de livrer un embed non vérifié qui pourrait ramer sur iPhone.
 
 **Un seul événement Calendly actif, pour tous les parcours** (retour
 direct 2026-09-10, "j'ai pas calendly pro, mets-en un seul pour tous") :
-`https://calendly.com/peccoux-manu/appel-decouverte-business`, renommé
-"Appel Stratégique" côté Calendly (description réécrite pour couvrir
+`https://calendly.com/peccoux-manu/audit-strategique` (constante
+`lib/booking.ts`), nommé "Audit stratégique" côté Calendly (03/11/2026). Le
+formulaire `/business` est retiré (accompagnement business humain arrêté
+le 01/11/2026) et redirige vers la page logiciel coach du site. Historique : (description réécrite pour couvrir
 les deux publics, physique et business), description à jour vérifiée
 via `event_types-get_event_type`. L'autre event type
 ("| Appel Découverte |", ancienne URL `/30min`) reste **inactif** — le
