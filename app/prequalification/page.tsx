@@ -153,6 +153,7 @@ const questions: Question[] = [
     label: "Quel budget mensuel tu es prêt à investir dans ton accompagnement ?",
     helper: "Sers-toi de ces fourchettes pour te situer, pas besoin d'être exact.",
     options: [
+      { value: "moins_350", label: "Moins de 350€ / mois" },
       { value: "350", label: "350€ / mois" },
       { value: "550", label: "550€ / mois" },
       { value: "750", label: "750€ / mois" },
@@ -165,6 +166,8 @@ const questions: Question[] = [
     label: "Comment tu nous as connu ?",
     options: [
       { value: "instagram", label: "Instagram" },
+      { value: "tiktok", label: "TikTok" },
+      { value: "youtube", label: "YouTube" },
       { value: "recommandation", label: "Recommandation / bouche-à-oreille" },
       { value: "recherche", label: "Recherche Google / internet" },
       { value: "autre", label: "Autre" },
