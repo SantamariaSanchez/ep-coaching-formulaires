@@ -20,8 +20,8 @@ const questions: Question[] = [
     id: "objectif",
     label: "C'est quoi ton objectif principal en ce moment ?",
     options: [
-      { value: "prise_de_muscle", label: "Prise de muscle" },
       { value: "perte_de_gras", label: "Perte de gras" },
+      { value: "prise_de_muscle", label: "Prise de muscle" },
       { value: "recomposition", label: "Recomposition (les deux en même temps)" },
       { value: "competition", label: "Préparation compétition" },
     ],
@@ -55,6 +55,21 @@ const questions: Question[] = [
     id: "pourquoi",
     label: "Pourquoi cet objectif compte pour toi ?",
     placeholder: "Réponds simplement, avec tes mots.",
+  },
+  {
+    // Ajoutée le 2026-11-13 (niche 18-25 ans, perdre du gras sans
+    // culpabiliser) : prépare l'angle de l'appel. Stockée dans
+    // answers.blocage comme le reste (voir actions.ts, `rest`).
+    type: "choice",
+    id: "blocage",
+    label: "Qu'est-ce qui te bloque le plus aujourd'hui ?",
+    options: [
+      { value: "culpabilite_ecart", label: "Je culpabilise après un écart et je lâche tout" },
+      { value: "craquages_soir", label: "Je craque souvent le soir ou le week-end" },
+      { value: "quoi_manger", label: "Je ne sais pas quoi manger ni en quelle quantité" },
+      { value: "regularite", label: "Je n'arrive pas à rester régulier plus de quelques semaines" },
+      { value: "resultats", label: "Je fais des efforts mais je ne vois aucun résultat" },
+    ],
   },
   {
     type: "choice",
