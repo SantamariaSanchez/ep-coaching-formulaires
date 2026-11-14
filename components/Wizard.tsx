@@ -62,6 +62,22 @@ function buildCalendlyUrl(base: string, campaignTag: string, answers: Answers) {
   return url.toString();
 }
 
+// Pré-remplissage depuis l'appli (un membre qui vient de créer son compte
+// n'a pas à retaper ses coordonnées). Passées dans le fragment d'URL
+// (#prenom=...&email=...), jamais dans la requête : un fragment n'est envoyé
+// à aucun serveur et n'apparaît dans aucun journal.
+const PREFILL_KEYS = ["prenom", "nom", "email", "telephone"] as const;
+
+export function parsePrefill(hash: string): Answers {
+  const out: Answers = {};
+  const params = new URLSearchParams(hash.replace(/^#/, ""));
+  for (const key of PREFILL_KEYS) {
+    const v = (params.get(key) ?? "").trim().slice(0, 120);
+    if (v) out[key] = v;
+  }
+  return out;
+}
+
 export default function Wizard({
   intro,
   questions,
@@ -81,7 +97,9 @@ export default function Wizard({
 }) {
   const [started, setStarted] = useState(false);
   const [stepIndex, setStepIndex] = useState(0);
-  const [answers, setAnswers] = useState<Answers>({});
+  const [answers, setAnswers] = useState<Answers>(() =>
+    typeof window === "undefined" ? {} : parsePrefill(window.location.hash)
+  );
   const [submitState, setSubmitState] = useState<"idle" | "done" | "error" | "excluded">("idle");
   const [exitScreen, setExitScreen] = useState<{ title: string; body: string } | null>(null);
   const [isPending, startTransition] = useTransition();
