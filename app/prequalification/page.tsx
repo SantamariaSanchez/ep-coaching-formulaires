@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { AUDIT_STRATEGIQUE_URL } from "@/lib/booking";
 import Wizard, { type Question } from "@/components/Wizard";
-import { submitPhysiqueForm } from "./actions";
+import { savePartialPhysique, submitPhysiqueForm } from "./actions";
 
 // Route laissee a /prequalification (pas de redirection casse) : le mot
 // "pre-qualification" a ete retire de tout ce qui est visible (titre,
@@ -200,6 +200,7 @@ export default function PrequalificationPage() {
       }}
       questions={questions}
       onSubmit={submitPhysiqueForm}
+      onPartial={savePartialPhysique}
       successTitle="On se parle bientôt"
       successBody="Réserve ton audit stratégique : on fait le point sur ta situation, ce que tu fais déjà et tes leviers prioritaires. Tu repars avec une vision plus claire de tes prochaines étapes."
       // Un seul événement Calendly actif : « Audit stratégique »

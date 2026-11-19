@@ -82,6 +82,7 @@ export default function Wizard({
   intro,
   questions,
   onSubmit,
+  onPartial,
   successTitle,
   successBody,
   calendlyUrl,
@@ -89,7 +90,9 @@ export default function Wizard({
 }: {
   intro: { eyebrow: string; title: string; body: string };
   questions: Question[];
-  onSubmit: (answers: Answers) => Promise<SubmitResult>;
+  onSubmit: (answers: Answers, draftId?: string | null) => Promise<SubmitResult>;
+  /** Garde les réponses dès que le téléphone est donné (candidature commencée). */
+  onPartial?: (answers: Answers, draftId?: string | null) => Promise<{ id?: string }>;
   successTitle: string;
   successBody: string;
   calendlyUrl: string;
@@ -103,6 +106,7 @@ export default function Wizard({
   const [submitState, setSubmitState] = useState<"idle" | "done" | "error" | "excluded">("idle");
   const [exitScreen, setExitScreen] = useState<{ title: string; body: string } | null>(null);
   const [isPending, startTransition] = useTransition();
+  const [draftId, setDraftId] = useState<string | null>(null);
 
   const total = questions.length;
   const current = questions[stepIndex];
@@ -128,12 +132,18 @@ export default function Wizard({
       return;
     }
     if (stepIndex < total - 1) {
+      // Téléphone donné (ou étape suivante) : la candidature est gardée même
+      // si la personne s'arrête avant la fin. En arrière-plan, sans bloquer.
+      if (onPartial && answers.telephone?.trim() && (current?.id === "telephone" || draftId)) {
+        const snapshot = answers;
+        void onPartial(snapshot, draftId).then((r) => { if (r.id) setDraftId(r.id); }).catch(() => {});
+      }
       setStepIndex((i) => i + 1);
       return;
     }
     // Derniere question : on soumet.
     startTransition(async () => {
-      const result = await onSubmit(answers);
+      const result = await onSubmit(answers, draftId);
       setSubmitState(result.ok ? "done" : "error");
     });
   }
