@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  weight: ["400", "700", "900"],
+// Montserrat servie depuis le dépôt (police variable, latin, 400 à 900) :
+// next/font/google échouait au build Vercel (« next/font/google queries have
+// exactly one entry », erreur Turbopack intermittente au téléchargement).
+const montserrat = localFont({
+  src: "./fonts/montserrat-latin.woff2",
+  weight: "400 900",
   variable: "--font-montserrat",
   display: "swap",
 });
